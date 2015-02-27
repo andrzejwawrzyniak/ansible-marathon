@@ -34,3 +34,9 @@
 
 - name: Set --http-port option
   lineinfile: line={{ marathon_port }} dest=/etc/marathon/conf/http_port create=yes
+
+- name: Remove old --http_credentials file
+  shell: rm -f /etc/marathon/conf/http_credentials
+
+- name: Set --http_credentials
+  lineinfile: line={{ http_credentials }} dest=/etc/marathon/conf/http_credentials create=yes
